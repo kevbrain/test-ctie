@@ -1,0 +1,11 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: test-ctie-dev-trigger
+  namespace: test-ctie-dev
+spec:
+  serviceAccountName: pipeline
+  bindings:
+    - ref: test-ctie-dev-triggerbinding
+  template:
+    ref: test-ctie-dev-triggertemplate

@@ -1,0 +1,18 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  namespace: {{ocp-namespace}}
+  name: test-ctie-route
+  labels:
+    app: test-ctie
+spec:
+  to:
+    kind: Service
+    name: test-ctie-service
+    weight: 256
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+  wildcardPolicy: None
+---
